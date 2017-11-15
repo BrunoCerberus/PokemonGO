@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC3658551FBBC3310099BF81 /* CoreDataPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3658541FBBC3310099BF81 /* CoreDataPokemon.swift */; };
 		EC5025AD1FBA7575000EF668 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5025AC1FBA7575000EF668 /* AppDelegate.swift */; };
 		EC5025AF1FBA7575000EF668 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5025AE1FBA7575000EF668 /* ViewController.swift */; };
 		EC5025B21FBA7575000EF668 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC5025B01FBA7575000EF668 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC3658541FBBC3310099BF81 /* CoreDataPokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPokemon.swift; sourceTree = "<group>"; };
 		EC5025A91FBA7575000EF668 /* PokemonGO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonGO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5025AC1FBA7575000EF668 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC5025AE1FBA7575000EF668 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				EC5025AC1FBA7575000EF668 /* AppDelegate.swift */,
 				EC5025AE1FBA7575000EF668 /* ViewController.swift */,
+				EC3658541FBBC3310099BF81 /* CoreDataPokemon.swift */,
 				EC5025B01FBA7575000EF668 /* Main.storyboard */,
 				EC5025B61FBA7575000EF668 /* Assets.xcassets */,
 				EC5025B81FBA7575000EF668 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC3658551FBBC3310099BF81 /* CoreDataPokemon.swift in Sources */,
 				EC5025AF1FBA7575000EF668 /* ViewController.swift in Sources */,
 				EC5025B51FBA7575000EF668 /* PokemonGO.xcdatamodeld in Sources */,
 				EC5025AD1FBA7575000EF668 /* AppDelegate.swift in Sources */,

@@ -15,6 +15,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapa: MKMapView!
     var gerenciadorLocalizacao = CLLocationManager()
     var contador = 0
+    var coreDataPokemon: CoreDataPokemon!
+    var pokemons: [Pokemon] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,41 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         gerenciadorLocalizacao.requestWhenInUseAuthorization()
         gerenciadorLocalizacao.startUpdatingLocation()
         
+        //recuperar pokemons
+        self.coreDataPokemon = CoreDataPokemon()
+        self.pokemons = coreDataPokemon.recuperarTodosPokemons()
+        
+        //Exibir Pokemons
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(Int(arc4random_uniform(8))), repeats: true) { (timer) in
+            print("Exibir anotacao")
+            if let coordenadas = self.gerenciadorLocalizacao.location?.coordinate {
+                let anotacao = MKPointAnnotation()
+                anotacao.coordinate = coordenadas
+                anotacao.coordinate.latitude += (Double(arc4random_uniform(400)) - 200 ) / 100000.0
+                anotacao.coordinate.longitude += (Double(arc4random_uniform(400)) - 200 ) / 100000.0
+                
+                self.mapa.addAnnotation(anotacao)
+            }
+        }
+    }
+    
+    //Esse metodo executa toda vez que um marcador e posto no mapa
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let anotacaoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        
+        if annotation is MKUserLocation {
+            anotacaoView.image = #imageLiteral(resourceName: "player")
+        } else {
+            anotacaoView.image = #imageLiteral(resourceName: "pikachu-2")
+        }
+        
+        var frame = anotacaoView.frame
+        frame.size.height = 40
+        frame.size.width = 40
+        
+        anotacaoView.frame = frame
+        
+        return anotacaoView
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
