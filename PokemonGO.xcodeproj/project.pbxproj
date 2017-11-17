@@ -15,6 +15,7 @@
 		EC5025B51FBA7575000EF668 /* PokemonGO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC5025B31FBA7575000EF668 /* PokemonGO.xcdatamodeld */; };
 		EC5025B71FBA7575000EF668 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC5025B61FBA7575000EF668 /* Assets.xcassets */; };
 		EC5025BA1FBA7575000EF668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC5025B81FBA7575000EF668 /* LaunchScreen.storyboard */; };
+		EC69B7071FBF3646007D5031 /* PokeAgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC69B7061FBF3646007D5031 /* PokeAgendaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EC5025BB1FBA7575000EF668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC5025C21FBA7628000EF668 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		EC5025C31FBA765C000EF668 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EC69B7061FBF3646007D5031 /* PokeAgendaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAgendaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				EC5025AE1FBA7575000EF668 /* ViewController.swift */,
 				EC3658541FBBC3310099BF81 /* CoreDataPokemon.swift */,
 				EC262F501FBD02A300DB9B0A /* PokemonAnotacao.swift */,
+				EC69B7061FBF3646007D5031 /* PokeAgendaViewController.swift */,
 				EC5025B01FBA7575000EF668 /* Main.storyboard */,
 				EC5025B61FBA7575000EF668 /* Assets.xcassets */,
 				EC5025B81FBA7575000EF668 /* LaunchScreen.storyboard */,
@@ -162,6 +165,7 @@
 				EC5025AF1FBA7575000EF668 /* ViewController.swift in Sources */,
 				EC5025B51FBA7575000EF668 /* PokemonGO.xcdatamodeld in Sources */,
 				EC5025AD1FBA7575000EF668 /* AppDelegate.swift in Sources */,
+				EC69B7071FBF3646007D5031 /* PokeAgendaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
