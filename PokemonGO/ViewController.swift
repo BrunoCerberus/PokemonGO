@@ -49,6 +49,44 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+    //executa essa funcao toda vez que uma anotacao for clicada
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let anotacao = view.annotation
+        let pokemon = (anotacao as! PokemonAnotacao).pokemon
+        mapView.deselectAnnotation(anotacao, animated: true)
+        
+        
+        if anotacao is MKUserLocation {
+            return
+        }
+        
+        if let coordAnotacao = anotacao?.coordinate {
+            let regiao = MKCoordinateRegionMakeWithDistance(coordAnotacao, 200, 200)
+            mapa.setRegion(regiao, animated: true)
+        }
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (timer) in
+            if let coord = self.gerenciadorLocalizacao.location?.coordinate {
+                //verifica se o ponto esta na area visivel que e um retangulo
+                if MKMapRectContainsPoint(self.mapa.visibleMapRect, MKMapPointForCoordinate(coord)) {
+                    self.coreDataPokemon.salvarPokemon(pokemon!)
+                    self.mapa.removeAnnotation(anotacao!)
+                    
+                    let alertController = UIAlertController(title: "Parabens!!!", message: "Voce capturou o pokemon \(pokemon?.nome ?? "")", preferredStyle: UIAlertControllerStyle.alert)
+                    let ok = UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil)
+                    alertController.addAction(ok)
+                    self.present(alertController, animated: true, completion: nil)
+                } else {
+                    
+                    let alertController = UIAlertController(title: "Voce nao pode capturar", message: "Voce precisa se aproximar mais para capturar o pokemon \(pokemon?.nome ?? "")", preferredStyle: UIAlertControllerStyle.alert)
+                    let ok = UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil)
+                    alertController.addAction(ok)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
     //Esse metodo executa toda vez que um marcador e posto no mapa
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let anotacaoView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)

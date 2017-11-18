@@ -28,19 +28,34 @@ class PokeAgendaViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        <#code#>
+        if section == 0 {
+            return "Capturados"
+        } else {
+            return "Nao Capturados"
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        if section == 0 {
+            return self.pokemonsCapturados.count
+        } else {
+            return self.pokemonsNaoCapturados.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        
+        let pokemon: Pokemon
+        if indexPath.section == 0 {
+            pokemon = self.pokemonsCapturados[indexPath.row]
+        } else {
+            pokemon = self.pokemonsNaoCapturados[indexPath.row]
+        }
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "reuseCell")
+        cell.textLabel?.text = pokemon.nome
+        cell.imageView?.image = UIImage(named: pokemon.nomeimagem!)
+        return cell
     }
     
     @IBAction func voltarMapa(_ sender: Any) {

@@ -54,6 +54,17 @@ class CoreDataPokemon {
         return []
     }
     
+    func salvarPokemon(_ pokemon: Pokemon) {
+        let context = self.getContext()
+        pokemon.capturado = true
+        
+        do {
+            try context.save()
+        } catch let erro {
+            print("Algo de errado aconteceu: \(erro.localizedDescription)")
+        }
+    }
+    
     //Adicionar todos os pokemons
     func adicionarTodosPokemons() {
         
