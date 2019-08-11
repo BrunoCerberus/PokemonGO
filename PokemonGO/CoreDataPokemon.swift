@@ -22,7 +22,7 @@ class CoreDataPokemon {
         let context = self.getContext()
         
         let requisicao = Pokemon.fetchRequest() as NSFetchRequest<Pokemon>
-        requisicao.predicate = NSPredicate(format: "capturado = %@", capturado as CVarArg)
+        requisicao.predicate = NSPredicate(format: "capturado == %@", NSNumber(value: capturado))
         
         do {
             let pokemons = try context.fetch(requisicao) as [Pokemon]
